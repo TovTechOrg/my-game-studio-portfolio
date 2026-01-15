@@ -13,6 +13,9 @@ A retro-futuristic styling of the classic Snake game. Features neon aesthetics a
 ### 2. [Crypto Clicker](/games/02-crypto-clicker)
 An addictive incremental game where you mine generic cryptocurrency, buy upgrades, and optimize your mining rig.
 
+### 3. [Rock Raper Scissors](/games/04-rock-paper-scissors) 
+A classic game of Rock Paper Scissors where you play against the computer.
+
 ## Project Structure
 - `/games`: Individual game projects (Source + Assets)
 - `index.html`: Main portfolio landing page
