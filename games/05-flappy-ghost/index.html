@@ -171,7 +171,7 @@
         <!-- Start Screen -->
         <div id="start-screen" class="ui-layer active">
             <h1>SPECTRAL FLAP</h1>
-            <p>Click or Space to Float</p>
+            <p id="instruction-text">Click or Space to Float</p>
             <button class="btn" id="start-btn">Start Haunting</button>
         </div>
 
@@ -218,10 +218,22 @@
             // Adjust scale based on a reference width, e.g., 400px
             scaleRatio = canvas.width / 400;
         }
-        window.addEventListener('resize', resize);
+        addEventListener('resize', resize);
         resize();
 
-        //Utilities        
+        function updatePlatformText() {
+            const instructions = document.getElementById('instruction-text');
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|Opera Mini/i.test(navigator.userAgent) || (innerWidth <= 768 && (('ontouchstart' in window) || navigator.maxTouchPoints > 0));
+
+            if (isMobile) {
+                instructions.innerText = "Tap to Float";
+            } else {
+                instructions.innerText = "Click or Space to Float";
+            }
+        }
+        updatePlatformText();
+
+        //Utilities
         function random(min, max) {
             return Math.random() * (max - min) + min;
         }
@@ -231,7 +243,7 @@
             ctx: null,
             init: function () {
                 if (!this.ctx) {
-                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                    this.ctx = new (AudioContext || webkitAudioContext)();
                 } else if (this.ctx.state === 'suspended') {
                     this.ctx.resume();
                 }
@@ -596,7 +608,7 @@
             }
         }
 
-        window.addEventListener('keydown', (e) => {
+        addEventListener('keydown', (e) => {
             if (e.code === 'Space') {
                 if (!gameRunning && startScreen.classList.contains('active')) {
                     startGame();
@@ -614,7 +626,7 @@
 
         // Touch support for mobile
         // Touch support for mobile - Bind to window to catch touches everywhere
-        window.addEventListener('touchstart', (e) => {
+        addEventListener('touchstart', (e) => {
             e.preventDefault(); // prevent scrolling
 
             // Logic to handle start/restart on touch as well
