@@ -45,3 +45,9 @@ Add a 'Game Over' overlay centered on screen with a 'Play Again' button. Also, s
 ```
 in @index.html change "Click or Space or Tap to Float” to adapt to the device running on. If running on the desktop, it should say "Click or Space to Float". if it runs on mobile, it should say instead “Tap to Float"
 ```
+
+# Prompt 9
+
+```
+fix the home button. On the desktop it works well but on mobile It starts the game rather than redirect to home
+```
