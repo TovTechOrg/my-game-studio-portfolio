@@ -39,3 +39,9 @@ There is a problem where after clicking “Try again” the button is clickable 
 ```
 Add a 'Game Over' overlay centered on screen with a 'Play Again' button. Also, save the 'High Score' to LocalStorage so it remembers my best run
 ```
+
+# Prompt 8
+
+```
+in @index.html change "Click or Space or Tap to Float” to adapt to the device running on. If running on the desktop, it should say "Click or Space to Float". if it runs on mobile, it should say instead “Tap to Float"
+```
