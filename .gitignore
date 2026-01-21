@@ -2,4 +2,3 @@
 node_modules/
 .env
 firebase-config.js
-save-secrets.js
