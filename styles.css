@@ -26,45 +26,101 @@ a {
   color: inherit;
 }
 
-/* Header Section */
-header {
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
   text-align: center;
-  padding: 4rem 2rem;
-  position: relative;
+  background: radial-gradient(circle at center, rgba(188, 19, 254, 0.1) 0%, rgba(18, 18, 18, 1) 70%);
+  padding: 2rem;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 800px;
 }
 
 h1.neon-title {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
   text-shadow: 0 0 5px #fff,
-  0 0 10px #fff,
-  0 0 20px var(--neon-purple),
-  0 0 40px var(--neon-purple),
-  0 0 80px var(--neon-purple);
-  margin-bottom: 0.5rem;
+    0 0 10px #fff,
+    0 0 20px var(--neon-purple),
+    0 0 40px var(--neon-purple),
+    0 0 80px var(--neon-purple);
+  margin: 0;
   animation: flicker 3s infinite alternate;
+  line-height: 1.1;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--neon-blue);
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   text-shadow: 0 0 5px var(--neon-blue);
+  margin-bottom: 2rem;
+}
+
+/* Install Button */
+.cta-button {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
+  color: #fff;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 15px rgba(188, 19, 254, 0.6);
+  transition: all 0.3s ease;
+  margin-top: 2rem;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 30px rgba(4, 217, 255, 0.8),
+    0 0 60px rgba(188, 19, 254, 0.6);
+}
+
+.cta-button:active {
+  transform: translateY(1px);
 }
 
 /* About Section */
+/* About Section */
 .about-section {
   max-width: 800px;
-  margin: 0 auto 4rem auto;
-  padding: 2rem;
+  margin: 0 auto 6rem auto;
+  padding: 3rem;
   text-align: center;
-  background: linear-gradient(145deg, #1a1a1a, #222);
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(30, 30, 30, 0.6);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
 }
 
 .about-section h2 {
@@ -99,19 +155,23 @@ h1.neon-title {
 .game-card {
   background: var(--card-bg);
   border-radius: 15px;
-  padding: 2px;
+  padding: 3px;
   /* For border gradient */
   background-image: linear-gradient(135deg, var(--neon-purple), var(--neon-blue));
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  /* Lift off background */
+  padding-bottom: 5px;
+  /* Thicker bottom border effect */
 }
 
 .game-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 0 20px rgba(188, 19, 254, 0.5),
-  0 0 40px rgba(4, 217, 255, 0.3);
+    0 0 40px rgba(4, 217, 255, 0.3);
 }
 
 .card-content {
@@ -184,18 +244,61 @@ footer {
   57%,
   100% {
     text-shadow: 0 0 4px #fff,
-    0 0 11px #fff,
-    0 0 19px #fff,
-    0 0 40px var(--neon-purple),
-    0 0 80px var(--neon-purple),
-    0 0 90px var(--neon-purple),
-    0 0 100px var(--neon-purple),
-    0 0 150px var(--neon-purple);
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px var(--neon-purple),
+      0 0 80px var(--neon-purple),
+      0 0 90px var(--neon-purple),
+      0 0 100px var(--neon-purple),
+      0 0 150px var(--neon-purple);
   }
+
 
   20%,
   24%,
   55% {
     text-shadow: none;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 60vh;
+    padding: 1rem;
+  }
+
+  h1.neon-title {
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .about-section {
+    width: 90%;
+    margin: 0 auto 4rem auto;
+    padding: 2rem 1rem;
+  }
+
+  .gallery-container {
+    padding: 1rem;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
   }
 }
