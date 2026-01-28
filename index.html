@@ -110,7 +110,7 @@
   </div>
 
   <div style="text-align: center; margin-bottom: 4rem;">
-    <button id="install-pwa" class="cta-button">Install App 📲</button>
+    <button id="install-pwa" style="margin: 0 auto; display: none;">Install App</button>
   </div>
 
   <footer>
@@ -138,11 +138,6 @@
       });
 
       installBtn.addEventListener("click", async () => {
-        if (!deferredPrompt) {
-          alert("Installation is not currently available. Please use the 'Add to Home Screen' option in your browser menu.");
-          console.log("Install prompt not ready");
-          return;
-        }
         // Show the install prompt
         deferredPrompt.prompt();
         // Wait for the user to respond to the prompt
